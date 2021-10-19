@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+form {
+  padding: 2em;
+}
+
+label {
+  padding: 1em;
+}
