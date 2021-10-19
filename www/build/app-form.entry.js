@@ -5,17 +5,20 @@ const appFormCss = ":host{display:block}form{padding:2em}label{padding:1em}";
 let AppForm = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
+    this.list = [
+      'At least 8 characters',
+      'At least 1 lowercase letter',
+      'At least 1 uppercase letter',
+      'At least 1 numerical number',
+      'At least 1 special character'
+    ];
+    this.showOptions = false;
   }
-  normalize(name) {
-    if (name) {
-      return name.substr(0, 1).toUpperCase() + name.substr(1).toLowerCase();
-    }
-    return '';
+  showOptionsHandler() {
+    this.showOptions = true;
   }
   render() {
-    if (this.match && this.match.params.name) {
-      return (h("form", null, h("label", null, h("p", null, "Email"), h("input", { type: "email" })), h("label", null, h("p", null, "Password"), h("input", { type: "password" })), h("p", null, "Hello! My name is ", this.normalize(this.match.params.name), ". My name was passed in through a route param!"), h("input", { type: "submit", value: "Submit" })));
-    }
+    return (h("form", null, h("label", null, h("p", null, "Email"), h("input", { type: "email" })), h("label", null, h("p", null, "Password"), h("input", { class: "password", type: "password" })), this.list.map(item => (h("ul", null, h("li", null, item)))), h("button", { onClick: this.showOptionsHandler.bind(this) }, "Submit")));
   }
 };
 AppForm.style = appFormCss;

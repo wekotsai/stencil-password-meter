@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MatchResults } from "@stencil/router";
 export namespace Components {
     interface AppForm {
-        "match": MatchResults;
+        "item": string;
     }
     interface AppHome {
     }
@@ -52,7 +52,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppForm {
-        "match"?: MatchResults;
+        "item"?: string;
     }
     interface AppHome {
     }

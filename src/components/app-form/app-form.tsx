@@ -7,34 +7,43 @@ import { MatchResults } from '@stencil/router';
   shadow: true,
 })
 export class AppForm {
-    @Prop() match: MatchResults;
+  list = [
+    'At least 8 characters',
+    'At least 1 lowercase letter',
+    'At least 1 uppercase letter',
+    'At least 1 numerical number',
+    'At least 1 special character'
+  ]
 
-  normalize(name: string): string {
-    if (name) {
-      return name.substr(0, 1).toUpperCase() + name.substr(1).toLowerCase();
-    }
-    return '';
+  @Prop() item: string;
+
+  showOptions = false;
+
+  showOptionsHandler() {
+     this.showOptions = true;
   }
 
   render() {
-    if (this.match && this.match.params.name) {
-      return (
-        <form>
-          <label>
-            <p>Email</p>
-            <input type="email"/>
-          </label>
+    return (
+      <form>
+        <label>
+          <p>Email</p>
+          <input type="email"/>
+        </label>
 
-          <label> 
-            <p>Password</p>
-            <input type="password"/>
-          </label>
+        <label> 
+          <p>Password</p>
+          <input class="password" type="password"/>
+        </label>
 
-          <p>Hello! My name is {this.normalize(this.match.params.name)}. My name was passed in through a route param!</p>
+        {this.list.map(item => (
+          <ul>
+            <li>{item}</li>
+          </ul>
+        ))}
 
-          <input type="submit" value="Submit" />
-        </form>
-      );
-    }
+        <button onClick={this.showOptionsHandler.bind(this)}>Submit</button>
+      </form>
+    );
   }
 }
