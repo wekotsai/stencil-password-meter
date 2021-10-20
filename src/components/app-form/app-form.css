@@ -9,3 +9,7 @@ form {
 label {
   padding: 1em;
 }
+
+.validations {
+  display: none;
+}

@@ -18,8 +18,17 @@
   <link rel="manifest" href="/manifest.json">
 </head>
 <body>
+  <app-form></app-form>
 
-  <app-root></app-root>
+  <script>
+    var form = document.querySelector('app-form');
+    var password = document.querySelector('.checkPassword');
+    var validations = document.querySelector('.validations')
 
+    password.addEventListener('input'), () => {
+      validations.style.display = 'block';
+      console.log('hi');
+    }
+  </script>
 </body>
 </html>

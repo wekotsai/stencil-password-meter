@@ -1,5 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
-import { MatchResults } from '@stencil/router';
+import { Component, Prop, h, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'app-form',
@@ -15,12 +14,14 @@ export class AppForm {
     'At least 1 special character'
   ]
 
+  @Element() modalEl: HTMLUListElement;
   @Prop() item: string;
+  @State() value: string;
 
-  showOptions = false;
+  // private list?: HTMLUListElement;
 
-  showOptionsHandler() {
-     this.showOptions = true;
+  handleChange(event) {
+    // this.list.style.display = 'block';
   }
 
   render() {
@@ -33,16 +34,16 @@ export class AppForm {
 
         <label> 
           <p>Password</p>
-          <input class="password" type="password"/>
+          <input class="checkPassword" type="password" onInput={(event) => this.handleChange(event)}/>   
         </label>
 
         {this.list.map(item => (
-          <ul>
+          <ul class="validations">
             <li>{item}</li>
           </ul>
         ))}
 
-        <button onClick={this.showOptionsHandler.bind(this)}>Submit</button>
+        {/* <button onClick={this.showHandler.bind(this)}>Submit</button>  */}
       </form>
     );
   }

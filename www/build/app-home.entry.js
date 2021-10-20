@@ -7,7 +7,7 @@ let AppHome = class {
     registerInstance(this, hostRef);
   }
   render() {
-    return (h("div", { class: "app-home" }, h("p", null, "Welcome to the Stencil App Starter. You can use this starter to build entire apps all with web components using Stencil! Check out our docs on", ' ', h("a", { href: "https://stenciljs.com" }, "stenciljs.com"), " to get started."), h("stencil-route-link", { url: "/profile/stencil" }, h("button", null, "Profile page"))));
+    return (h("div", { class: "app-home" }, h("stencil-route-link", { url: "/profile/stencil" }, h("button", null, "Profile page"))));
   }
 };
 AppHome.style = appHomeCss;
