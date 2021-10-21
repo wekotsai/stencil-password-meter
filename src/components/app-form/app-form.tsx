@@ -15,35 +15,33 @@ export class AppForm {
     this.value = event.target.value;
 
     if (this.value.length < 8) {
-      this.list.push('At least 8 characters')
+      this.list.push('❗Must contain at least 8 characters');
     }
 
     if (this.value.search(/[a-z]/) < 0) {
-      this.list.push('Must contain at least one lowercase letter');
+      this.list.push('❗Must contain at least one lowercase letter');
     }
 
     if (this.value.search(/[A-Z]/) < 0) {
-      this.list.push('Must contain at least one uppercase letter');
+      this.list.push('❗Must contain at least one uppercase letter');
     }
     
     if (this.value.search(/[0-9]/) < 0) {
-      this.list.push('Must contain at least one number'); 
+      this.list.push('❗Must contain at least one number'); 
     }
 
     if (this.value.search(/[$@#&!]/) < 0) {
-      this.list.push('Must contain at least one special character'); 
+      this.list.push('❗Must contain at least one special character'); 
     }
 
     if (this.value.search(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/) >= 0) {
-      this.list.push('pass!')
+      this.list.splice(0, this.list.length);
     }
   }
 
   removeDuplicates(data) {
     return data.filter((value, index) => data.indexOf(value) === index);
   }
-
-  // removeDuplicates(list);
 
   show = false;
 
@@ -54,23 +52,23 @@ export class AppForm {
   render() {
     return (
       <form>
-        <label>
+        <label class="label">
           <p>Email</p>
-          <input type="email"/>
+          <input class="input" type="email"/>
         </label>
 
-        <label> 
+        <label class="label"> 
           <p>Password</p>
-          <input value={this.value} onInput={(event) => this.validate(event)}/>   
+          <input class="input" value={this.value} onInput={(event) => this.validate(event)}/>
         </label>
 
-        {this.list.map(item => (
-          <ul>
+        {this.removeDuplicates(this.list).map(item => (
+          <ul class="requirements">
             <li>{item}</li>
           </ul>
         ))}
 
-        <button onClick={this.showHandler.bind(this)}>Submit</button> 
+        <button class="submit" onClick={this.showHandler.bind(this)}>Submit</button> 
       </form>
     );
   }
