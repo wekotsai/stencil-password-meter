@@ -16,25 +16,35 @@ export class AppForm {
 
     if (this.value.length < 8) {
       this.list.push('❗Must contain at least 8 characters');
+    } else {
+      this.list.splice(0);
     }
 
     if (this.value.search(/[a-z]/) < 0) {
       this.list.push('❗Must contain at least one lowercase letter');
+    } else {
+      this.list.splice(1);
     }
 
     if (this.value.search(/[A-Z]/) < 0) {
       this.list.push('❗Must contain at least one uppercase letter');
+    } else {
+      this.list.splice(2);
     }
     
     if (this.value.search(/[0-9]/) < 0) {
       this.list.push('❗Must contain at least one number'); 
+    } else {
+      this.list.splice(3);
     }
 
     if (this.value.search(/[$@#&!]/) < 0) {
       this.list.push('❗Must contain at least one special character'); 
+    } else {
+      this.list.splice(4);
     }
 
-    if (this.value.search(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/) >= 0) {
+    if (this.value.search(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/) >= 0 || this.value.length == 0) {
       this.list.splice(0, this.list.length);
     }
   }
@@ -59,7 +69,7 @@ export class AppForm {
 
         <label class="label"> 
           <p>Password</p>
-          <input class="input" value={this.value} onInput={(event) => this.validate(event)}/>
+          <input class="input" type="password" value={this.value} onInput={(event) => this.validate(event)}/>
         </label>
 
         {this.removeDuplicates(this.list).map(item => (
