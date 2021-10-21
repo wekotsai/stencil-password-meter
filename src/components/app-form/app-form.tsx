@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Element } from '@stencil/core';
+import { Component, Prop, h, State } from '@stencil/core';
 
 @Component({
   tag: 'app-form',
@@ -6,44 +6,44 @@ import { Component, Prop, h, State, Element } from '@stencil/core';
   shadow: true,
 })
 export class AppForm {
-  list = [
-    'At least 8 characters',
-    'At least 1 lowercase letter',
-    'At least 1 uppercase letter',
-    'At least 1 numerical number',
-    'At least 1 special character'
-  ]
-
   @Prop() item: string;
   @State() value: string;
+
+  list = [];
 
   validate(event) {
     this.value = event.target.value;
 
     if (this.value.length < 8) {
-      console.log('At least 8 characters');
+      this.list.push('At least 8 characters')
     }
 
     if (this.value.search(/[a-z]/) < 0) {
-      console.log('Must contain at least one lowercase letter');
+      this.list.push('Must contain at least one lowercase letter');
     }
 
     if (this.value.search(/[A-Z]/) < 0) {
-      console.log('Must contain at least one uppercase letter');
+      this.list.push('Must contain at least one uppercase letter');
     }
     
     if (this.value.search(/[0-9]/) < 0) {
-      console.log('Must contain at least one number'); 
+      this.list.push('Must contain at least one number'); 
     }
 
     if (this.value.search(/[$@#&!]/) < 0) {
-      console.log('Must contain at least one special character'); 
+      this.list.push('Must contain at least one special character'); 
     }
 
     if (this.value.search(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/) >= 0) {
-      console.log('pass!')
+      this.list.push('pass!')
     }
   }
+
+  removeDuplicates(data) {
+    return data.filter((value, index) => data.indexOf(value) === index);
+  }
+
+  // removeDuplicates(list);
 
   show = false;
 
@@ -61,11 +61,11 @@ export class AppForm {
 
         <label> 
           <p>Password</p>
-          <input class="checkPassword" value={this.value} onInput={(event) => this.validate(event)}/>   
+          <input value={this.value} onInput={(event) => this.validate(event)}/>   
         </label>
 
         {this.list.map(item => (
-          <ul class="validations">
+          <ul>
             <li>{item}</li>
           </ul>
         ))}
