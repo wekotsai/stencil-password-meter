@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from '@stencil/core';
+import { Component, Prop, h, State, Listen } from '@stencil/core';
 
 @Component({
   tag: 'app-form',
@@ -8,6 +8,12 @@ import { Component, Prop, h, State } from '@stencil/core';
 export class AppForm {
   @Prop() item: string;
   @State() value: string;
+  @State() open: boolean;
+
+  @Listen('click', { capture: true })
+    handleClick() {
+      this.open = !this.open;
+    }
 
   list = [];
 
@@ -62,14 +68,15 @@ export class AppForm {
   render() {
     return (
       <form>
-        <label class="label">
-          <p>Email</p>
+        <label>
+          <p class="text">Email</p>
           <input class="input" type="email"/>
         </label>
 
-        <label class="label"> 
-          <p>Password</p>
-          <input class="input" type="password" value={this.value} onInput={(event) => this.validate(event)}/>
+        <label> 
+          <p class="text">Password</p>
+          <input class="input" type={this.open ? "password" : "text"} value={this.value} onInput={(event) => this.validate(event)}/>
+          <button class="show-hide">👁️ Show password</button>
         </label>
 
         {this.removeDuplicates(this.list).map(item => (
