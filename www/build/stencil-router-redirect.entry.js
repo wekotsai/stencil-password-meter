@@ -1,5 +1,5 @@
-import { r as registerInstance, g as getElement } from './index-d67f0123.js';
-import { A as ActiveRouter } from './active-router-1877815e.js';
+import { r as registerInstance, g as getElement } from './index-42c6a915.js';
+import { A as ActiveRouter } from './active-router-0e196402.js';
 
 // Get the URL for this route link without the root from the router
 const getUrl = (url, root) => {

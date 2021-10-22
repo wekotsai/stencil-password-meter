@@ -33,6 +33,7 @@ form {
   margin-top: 5px;
   border: none;
   outline: none;
+  font-size: 14px;
 }
 
 .show-hide:hover {
@@ -42,6 +43,15 @@ form {
 .requirements {
   list-style: none;
   padding: 0;
+}
+
+.tnc {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.tncLink {
+  color: #515a6e;
 }
 
 .submit {
@@ -58,4 +68,10 @@ form {
   color: #fff;
   background: linear-gradient(#10bbad, #0faa9d);
   box-shadow: 0 2px 12px -3px #17dfce;
+  cursor: pointer;
+}
+
+.submit:disabled {
+  background: #9298a7;
+  box-shadow: 0 0 0 0 #fff;
 }

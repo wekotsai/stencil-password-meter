@@ -7,13 +7,10 @@ import { Component, Prop, h, State, Listen } from '@stencil/core';
 })
 export class AppForm {
   @Prop() item: string;
+  @State() disabled?: boolean;
   @State() value: string;
-  @State() open: boolean;
-
-  @Listen('click', { capture: true })
-    handleClick() {
-      this.open = !this.open;
-    }
+  @State() showPassword?: boolean;
+  @State() checkboxValue: string;
 
   list = [];
 
@@ -59,10 +56,15 @@ export class AppForm {
     return data.filter((value, index) => data.indexOf(value) === index);
   }
 
-  show = false;
+  handleClick() {
+    this.showPassword = !this.showPassword;
+  }
 
-  showHandler() {
-    this.show = true;
+  checkboxHandler(event) {
+    this.checkboxValue = event.target.value;
+    if(this.checkboxValue == 'on') {
+      this.disabled = !this.disabled;
+    }
   }
 
   render() {
@@ -75,8 +77,8 @@ export class AppForm {
 
         <label> 
           <p class="text">Password</p>
-          <input class="input" type={this.open ? "password" : "text"} value={this.value} onInput={(event) => this.validate(event)}/>
-          <button class="show-hide">👁️ Show password</button>
+          <input class="input" type={this.showPassword ? "text" : "password"} value={this.value} onInput={(event) => this.validate(event)}/>
+          <button class="show-hide" onClick={this.handleClick.bind(this)}>👁️ Show password</button>
         </label>
 
         {this.removeDuplicates(this.list).map(item => (
@@ -85,7 +87,12 @@ export class AppForm {
           </ul>
         ))}
 
-        <button class="submit" onClick={this.showHandler.bind(this)}>Submit</button> 
+        <div class="tnc">
+          <input type="checkbox" class="checkbox" value={this.checkboxValue} onChange={(event) => this.checkboxHandler(event)} required/> 
+            I accept the <a class="tncLink" href="#">Terms and Conditions</a>
+        </div>
+
+        <button class="submit" disabled={!this.disabled}>Submit</button> 
       </form>
     );
   }
