@@ -2,12 +2,12 @@
   display: block;
 }
 
-form {
+.form {
   position: relative;
   color: #515a6e;
   border-radius: 10px;
   margin: 0 auto;
-  margin-top: 350px;
+  margin-top: 50px;
   padding: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   width: 350px;
@@ -50,7 +50,7 @@ form {
   font-size: 14px;
 }
 
-.tncLink {
+.tnc-link {
   color: #515a6e;
 }
 

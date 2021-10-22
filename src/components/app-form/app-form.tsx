@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Listen } from '@stencil/core';
+import { Component, Prop, h, State } from '@stencil/core';
 
 @Component({
   tag: 'app-form',
@@ -69,15 +69,15 @@ export class AppForm {
 
   render() {
     return (
-      <form>
+      <form class="form">
         <label>
           <p class="text">Email</p>
-          <input class="input" type="email"/>
+          <input class="input" type="email" required/>
         </label>
 
         <label> 
           <p class="text">Password</p>
-          <input class="input" type={this.showPassword ? "text" : "password"} value={this.value} onInput={(event) => this.validate(event)}/>
+          <input class="input" type={this.showPassword ? "text" : "password"} value={this.value} onInput={(event) => this.validate(event)} required/>
           <button class="show-hide" onClick={this.handleClick.bind(this)}>👁️ Show password</button>
         </label>
 
@@ -89,7 +89,7 @@ export class AppForm {
 
         <div class="tnc">
           <input type="checkbox" class="checkbox" value={this.checkboxValue} onChange={(event) => this.checkboxHandler(event)} required/> 
-            I accept the <a class="tncLink" href="#">Terms and Conditions</a>
+            I accept the <a class="tnc-link" href="#">Terms and Conditions</a>
         </div>
 
         <button class="submit" disabled={!this.disabled}>Submit</button> 
