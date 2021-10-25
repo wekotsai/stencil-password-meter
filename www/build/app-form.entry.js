@@ -51,12 +51,13 @@ let AppForm = class {
   }
   checkboxHandler(event) {
     this.checkboxValue = event.target.value;
-    if (this.checkboxValue == 'on') {
+    if (this.checkboxValue === 'on') {
       this.disabled = !this.disabled;
+      return false;
     }
   }
   render() {
-    return (h("form", { class: "form" }, h("label", null, h("p", { class: "text" }, "Email"), h("input", { class: "input", type: "email", required: true })), h("label", null, h("p", { class: "text" }, "Password"), h("input", { class: "input", type: this.showPassword ? "text" : "password", value: this.value, onInput: (event) => this.validate(event), required: true }), h("button", { class: "show-hide", onClick: this.handleClick.bind(this) }, "\uD83D\uDC41\uFE0F Show password")), this.removeDuplicates(this.list).map(item => (h("ul", { class: "requirements" }, h("li", null, item)))), h("div", { class: "tnc" }, h("input", { type: "checkbox", class: "checkbox", value: this.checkboxValue, onChange: (event) => this.checkboxHandler(event), required: true }), "I accept the ", h("a", { class: "tnc-link", href: "#" }, "Terms and Conditions")), h("button", { class: "submit", disabled: !this.disabled }, "Submit")));
+    return (h("form", { class: "form" }, h("label", null, h("p", { class: "text" }, "Email"), h("input", { class: "input", type: "email", required: true })), h("label", null, h("p", { class: "text" }, "Password"), h("input", { class: "input", type: this.showPassword ? "text" : "password", value: this.value, onInput: (event) => this.validate(event), required: true }), h("button", { type: "button", class: "show-hide", onClick: this.handleClick.bind(this) }, "\uD83D\uDC41\uFE0F Show password")), this.removeDuplicates(this.list).map(item => (h("ul", { class: "requirements" }, h("li", null, item)))), h("div", { class: "tnc" }, h("input", { type: "checkbox", class: "checkbox", value: this.checkboxValue, onChange: (event) => this.checkboxHandler(event), required: true }), "I accept the ", h("a", { class: "tnc-link", href: "#" }, "Terms and Conditions")), h("button", { class: "submit", disabled: !this.disabled }, "Submit")));
   }
 };
 AppForm.style = appFormCss;

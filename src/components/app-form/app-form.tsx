@@ -62,8 +62,9 @@ export class AppForm {
 
   checkboxHandler(event) {
     this.checkboxValue = event.target.value;
-    if(this.checkboxValue == 'on') {
+    if(this.checkboxValue === 'on') {
       this.disabled = !this.disabled;
+      return false;
     }
   }
 
@@ -78,7 +79,7 @@ export class AppForm {
         <label> 
           <p class="text">Password</p>
           <input class="input" type={this.showPassword ? "text" : "password"} value={this.value} onInput={(event) => this.validate(event)} required/>
-          <button class="show-hide" onClick={this.handleClick.bind(this)}>👁️ Show password</button>
+          <button type="button" class="show-hide" onClick={this.handleClick.bind(this)}>👁️ Show password</button>
         </label>
 
         {this.removeDuplicates(this.list).map(item => (
