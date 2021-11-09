@@ -94,6 +94,7 @@ export class AppForm {
         </div>
 
         <button class="submit" disabled={!this.disabled}>Submit</button> 
+        <d4l-button></d4l-button>
       </form>
     );
   }
