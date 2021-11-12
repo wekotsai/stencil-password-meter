@@ -4,7 +4,7 @@
 
 .form {
   position: relative;
-  color: #515a6e;
+  color: #000080;
   border-radius: 10px;
   margin: 0 auto;
   margin-top: 50px;
@@ -29,7 +29,9 @@
 
 .show-hide {
   background-color: transparent;
-  color: #515a6e;
+  display: flex;
+  align-items: center;
+  color: #000080;
   margin-top: 5px;
   border: none;
   outline: none;
@@ -38,6 +40,12 @@
 
 .show-hide:hover {
   color: #f0711c;
+}
+
+d4l-icon-show-hide .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
 
 .requirements {
@@ -51,7 +59,7 @@
 }
 
 .tnc-link {
-  color: #515a6e;
+  color: #000080;
 }
 
 .submit {
@@ -66,12 +74,12 @@
   font-weight: 500;
   margin: 25px 0 10px;
   color: #fff;
-  background: linear-gradient(#10bbad, #0faa9d);
-  box-shadow: 0 2px 12px -3px #17dfce;
+  background: linear-gradient(#0b0bce, #000080);
+  box-shadow: 0 2px 12px -3px #3f3ff5;
   cursor: pointer;
 }
 
 .submit:disabled {
-  background: #9298a7;
-  box-shadow: 0 0 0 0 #fff;
+  background: #cdd3e4;
+  box-shadow: none;
 }
