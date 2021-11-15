@@ -1,5 +1,5 @@
-import { r as registerInstance, e as getContext, h, g as getElement } from './index-42c6a915.js';
-import { A as ActiveRouter } from './active-router-0e196402.js';
+import { r as registerInstance, i as getContext, h, g as getElement } from './index-6c3223ca.js';
+import { A as ActiveRouter } from './active-router-3ece8850.js';
 import { m as matchPath } from './match-path-760e1797.js';
 import './location-utils-fea12957.js';
 

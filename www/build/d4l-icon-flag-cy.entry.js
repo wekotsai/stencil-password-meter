@@ -1,0 +1,16 @@
+import { r as registerInstance, h, e as Host } from './index-6c3223ca.js';
+
+const iconCss = ".icon{display:block;width:48px;height:48px;color:var(--color-primary);fill:currentColor}.icon__fill--primary-color{fill:var(--color-primary)}.icon__fill--secondary-color{fill:var(--color-secondary)}.icon__fill--none{fill:none}.icon--small{width:24px;height:24px}.icon--flag{width:28px;height:20px}.icon--medium{width:36px;height:36px}.icon--extra-small{width:18px;height:18px}.icon--size-auto{width:auto;height:auto}.icon--current-color{fill:currentColor;color:currentColor}.icon--circle{border-radius:50%;padding:calc(var(--space-xs) + 2px);overflow:visible}.icon--bg-white{background-color:#fff}.icon--bg-primary{background-color:var(--color-primary);color:#fff}.icon--bg-tertiary-light{background-color:var(--color-tertiary-light)}.icon--bg-tertiary-lime{background-color:var(--color-support-green)}.icon--bg-tertiary-yellow{background-color:var(--color-support-yellow)}.icon--bg-neutral-lightest{background-color:var(--color-neutral-lightest)}.icon--bg-tertiary-blue{background-color:var(--color-support-blue)}.icon--rotate-180{transform:rotate(180deg)}.icon--animated-transform{transition:transform 0.2s ease}.icon--margin-horizontal-xss{margin-left:var(--space-xxs);margin-right:var(--space-xxs)}";
+
+let IconFlagCyprus = class {
+  constructor(hostRef) {
+    registerInstance(this, hostRef);
+    this.classes = '';
+  }
+  render() {
+    return (h(Host, { "aria-hidden": "true", role: "presentation" }, h("svg", { xmlns: "http://www.w3.org/2000/svg", class: `icon icon--flag ${this.classes}`, width: "28", height: "20" }, h("defs", null, h("rect", { id: "a", width: "28", height: "20", x: "0", y: "0", rx: "2" })), h("g", { fill: "none", "fill-rule": "evenodd" }, h("mask", { id: "b", fill: "#fff" }, h("use", { xlinkHref: "#a" })), h("rect", { width: "27.5", height: "19.5", x: ".25", y: ".25", stroke: "#F5F5F5", "stroke-width": ".5", rx: "2" }), h("path", { fill: "#E7832C", d: "M20.73 2.969c.333-.167.44-.057.239.244l-.605.907c-.2.302-.61.71-.91.911l-.907.605c-.302.2-.758.575-1.017.834l.274-.274a.662.662 0 00-.004.937l.4.4a.66.66 0 010 .933l-.4.401c-.258.258-.736.331-1.07.164l-.126-.062a.674.674 0 00-.906.302l-.063.125c-.166.333-.58.697-.934.815l-.735.245c-.35.116-.929.21-1.3.21-.368 0-.8.27-.968.605l-.063.125a.669.669 0 01-.893.308l-1.484-.741A4.91 4.91 0 018.2 10.2l-.4-.4c-.258-.258-.467-.763-.467-1.133 0-.369.302-.667.66-.667H7.34c.364 0 .867-.208 1.125-.466l.401-.401c.258-.258.762-.466 1.133-.466a.98.98 0 00.878-.633l.244-.735a.77.77 0 01.87-.5l2.016.403c.364.072.944.06 1.304-.03l1.376-.344c.356-.09.915-.296 1.25-.463l.124-.063 1.209-.604.125-.063 1.208-.604.125-.062z", mask: "url(#b)" }), h("circle", { cx: "14", cy: "15.333", r: "1", fill: "#445128", mask: "url(#b)" }), h("path", { stroke: "#445128", "stroke-linecap": "round", "stroke-width": "1.333", d: "M16 14.667s2-.667 2.667-2", mask: "url(#b)", opacity: ".75" }), h("path", { stroke: "#445128", "stroke-linecap": "round", "stroke-width": "1.333", d: "M9.333 14.667s2-.667 2.667-2", mask: "url(#b)", opacity: ".75", transform: "matrix(-1 0 0 1 21.333 0)" })))));
+  }
+};
+IconFlagCyprus.style = iconCss;
+
+export { IconFlagCyprus as d4l_icon_flag_cy };
